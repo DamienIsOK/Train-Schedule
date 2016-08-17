@@ -1,0 +1,58 @@
+body {
+	background-image: url('../images/e6843a30.png');
+	background-repeat: repeat;
+}
+
+.jumbotron {
+	padding-top: 15px;
+	height: 200px;
+	background-image: url('../images/train.png');
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: 65%;
+}
+
+#logo {
+	width: 15%;
+	height: auto;
+}
+
+.panel > .panel-heading, .btn {
+	background-color: #174375;
+	text-align: center;
+}
+
+.form-group {
+	display: inline-block;
+	text-align: center;
+}
+
+#form-center {
+	width: 84%;
+	padding-top: 10px;
+	margin: 0 auto;
+
+}
+
+#trainName, #destination, #firstTime, #frequency {
+	padding: 0px 15px 0px 15px;
+}
+
+.table-striped {
+	text-align: center;
+}
+
+th {
+	text-align: center;
+}
+
+.footer {
+	width: 100%;
+	height: 20px;
+	background-color: #174375;
+	text-align: center;
+	color: #fff;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+
+}

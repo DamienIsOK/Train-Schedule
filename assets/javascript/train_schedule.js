@@ -49,7 +49,8 @@ $("#addTrainBtn").on("click", function(){
 
 
 database.ref().on("child_added", function(childSnapshot, prevChildKey){
-	// What is childSnapshot and prevChild doing? 
+	
+	// *** QUESTION: What is childSnapshot and prevChild doing? Can it be named anything else?***
 	
 	console.log("Child Snapshot Value: " + childSnapshot.val());
 
@@ -63,7 +64,8 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 	console.log("newDestination: " + newDestination);
 	console.log("newFrequency: " + newFrequency);
 
-	// Why can't I save the following variable to moment().format("hh:mm")
+	// *** QUESTION: Why can't I save the following variable to moment().format("hh:mm")? ***
+	
 	var currentTime = moment();
 	console.log(moment(currentTime).format("hh:mm"));
 
@@ -79,13 +81,14 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 	console.log("Remainder: ", remainder);
 
 	// Minutes until the next train calculated by subtracting the the remainder from the frequency
-	var timeUntilTrain = newFrequency - remainder;
-	console.log("Time Til Train: " + timeUntilTrain);
+	var minsUntilTrain = newFrequency - remainder;
+	console.log("Time Til Train: " + minsUntilTrain);
 
-	var nextTrainTime = moment().add(timeUntilTrain, "minutes");
+	// Calculate next train time by adding the current time to the minsUntilTrain
+	var nextTrainTime = moment().add(minsUntilTrain, "minutes");
 	console.log("Next arrival: " + moment(nextTrainTime).format("hh:mm"));
 
-	$("#trainTable > tbody").append("<tr><td>" + newName + "</td><td>" + newDestination + "</td><td>" + newFrequency + "</td><td>" + moment(nextTrainTime).format("hh:mm") + "</td><td>" + timeUntilTrain);
+	$("#trainTable > tbody").append("<tr><td>" + newName + "</td><td>" + newDestination + "</td><td>" + newFrequency + "</td><td>" + moment(nextTrainTime).format("hh:mm") + "</td><td>" + minsUntilTrain);
 
 	return false;
 });
